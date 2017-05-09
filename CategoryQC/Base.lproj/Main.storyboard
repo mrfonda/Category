@@ -120,10 +120,27 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;- Tap to randomize" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quh-CJ-0Oz">
+                                <rect key="frame" x="227.5" y="70" width="131.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap buttons to change  category menu state" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VeT-Nf-tST">
+                                <rect key="frame" x="116" y="337" width="143" height="38.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="VeT-Nf-tST" firstAttribute="top" secondItem="jkE-ZF-d8A" secondAttribute="bottom" constant="27" id="DA3-nb-lsR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Quh-CJ-0Oz" secondAttribute="trailing" id="K26-vw-Agi"/>
+                            <constraint firstItem="VeT-Nf-tST" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NAR-pg-uBX"/>
+                            <constraint firstItem="Quh-CJ-0Oz" firstAttribute="top" secondItem="pbn-zg-xha" secondAttribute="top" id="NP5-7v-gsr"/>
                             <constraint firstItem="3M8-jy-yEO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="bhi-5i-Gc4"/>
+                            <constraint firstItem="Quh-CJ-0Oz" firstAttribute="leading" secondItem="pbn-zg-xha" secondAttribute="trailing" constant="20" id="duj-5z-ZUt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3M8-jy-yEO" secondAttribute="trailing" constant="50" id="jBd-38-CYR"/>
                             <constraint firstItem="3M8-jy-yEO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="rup-Ko-nMs"/>
                         </constraints>
@@ -134,6 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>
