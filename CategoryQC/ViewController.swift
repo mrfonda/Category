@@ -10,16 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+ 
+  @IBOutlet weak var menu: CategoryButtonView!
+ 
+  @IBAction func toCategory(_ sender: UIButton) {
+    menu.state = .category
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+  @IBAction func toUp(_ sender: UIButton) {
+    menu.state = .upArrow
   }
-
+  @IBAction func toLeft(_ sender: UIButton) {
+    menu.state = .leftArrow
+  }
+  @IBAction func toRight(_ sender: UIButton) {
+    menu.state = .rightArrow
+  }
+  
+  @IBAction func toDown(_ sender: UIButton) {
+    menu.state = .downArrow
+  }
 
 }
 
