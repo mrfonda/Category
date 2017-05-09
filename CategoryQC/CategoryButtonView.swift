@@ -8,26 +8,31 @@
 
 import UIKit
 
+protocol CategoryMenuDelegate {
+  func categoryViewDidTapped(menuState: CategoryButtonView.MenuStates) -> CategoryButtonView.MenuStates
+}
+
 class CategoryButtonView: UIView {
   
   
   let categoryView = CategoryView()
   
+  var categoryMenuDelegate : CategoryMenuDelegate?
   
-  enum States : Int {
+  public enum MenuStates : Int {
     case category = 0
     case leftArrow = 1
     case downArrow = 2
     case rightArrow = 3
     case upArrow = 4
-    static func randomState() -> States {
-      return States(rawValue: Int(arc4random_uniform(UInt32(States.upArrow.rawValue))))!
+    static func randomState() -> MenuStates {
+      return MenuStates(rawValue: Int(arc4random_uniform(UInt32(MenuStates.upArrow.rawValue))))!
     }
   }
-  
-  open var state : States = .category {
+
+  open var menuState : MenuStates = .category {
     willSet {
-      switch state {
+      switch menuState {
       case .category:
         switch newValue {
         case .leftArrow:
@@ -90,7 +95,7 @@ class CategoryButtonView: UIView {
         default: return
         }
       }
-      print(state, "->", newValue)
+      print(menuState, "->", newValue)
     }
     
   }
@@ -106,7 +111,7 @@ class CategoryButtonView: UIView {
   
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     categoryView.addTouchedAnimation(reverseAnimation: true)
-    state = States.randomState()
+    menuState = categoryMenuDelegate?.categoryViewDidTapped(menuState: menuState) ?? menuState
   }
 }
 

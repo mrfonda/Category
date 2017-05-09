@@ -8,26 +8,34 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CategoryMenuDelegate {
 
- 
   @IBOutlet weak var menu: CategoryButtonView!
- 
+  
+  //MARK: - Life Cycle
+  
+  override func viewDidLoad() {
+    menu.categoryMenuDelegate = self
+  }
+  //MARK: - UI
+  func categoryViewDidTapped(menuState: CategoryButtonView.MenuStates) -> CategoryButtonView.MenuStates {
+    return CategoryButtonView.MenuStates.randomState()
+  }
   @IBAction func toCategory(_ sender: UIButton) {
-    menu.state = .category
+    menu.menuState = .category
   }
   @IBAction func toUp(_ sender: UIButton) {
-    menu.state = .upArrow
+    menu.menuState = .upArrow
   }
   @IBAction func toLeft(_ sender: UIButton) {
-    menu.state = .leftArrow
+    menu.menuState = .leftArrow
   }
   @IBAction func toRight(_ sender: UIButton) {
-    menu.state = .rightArrow
+    menu.menuState = .rightArrow
   }
   
   @IBAction func toDown(_ sender: UIButton) {
-    menu.state = .downArrow
+    menu.menuState = .downArrow
   }
 
 }
