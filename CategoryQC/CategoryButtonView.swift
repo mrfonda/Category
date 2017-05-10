@@ -11,11 +11,13 @@ import UIKit
 protocol CategoryMenuDelegate {
   func categoryViewDidTapped(menuState: CategoryButtonView.MenuStates) -> CategoryButtonView.MenuStates
 }
-
+@IBDesignable
 class CategoryButtonView: UIView {
   
   
   let categoryView = CategoryView()
+  
+  let menuButton = UIButton()
   
   var categoryMenuDelegate : CategoryMenuDelegate?
   
@@ -100,16 +102,29 @@ class CategoryButtonView: UIView {
     
   }
   
-  override func draw(_ rect: CGRect) {
-    addSubview(categoryView)
-    categoryView.bindFrameToSuperviewBounds()
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    menuButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
+    menuButton.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchDown)
+    menuButton.addTarget(self, action: #selector(buttonReleased), for: UIControlEvents.touchUpOutside)
   }
   
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override func draw(_ rect: CGRect) {
+    addSubview(categoryView)
+    addSubview(menuButton)
+    categoryView.bindFrameToSuperviewBounds()
+    menuButton.bindFrameToSuperviewBounds()
+  }
+  
+  func buttonPressed() {
     categoryView.addTouchedAnimation()
   }
   
-  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+  func buttonReleased() {
+    categoryView.addTouchedAnimation(reverseAnimation: true)
+  }
+  func buttonTapped() {
     categoryView.addTouchedAnimation(reverseAnimation: true)
     menuState = categoryMenuDelegate?.categoryViewDidTapped(menuState: menuState) ?? menuState
   }
