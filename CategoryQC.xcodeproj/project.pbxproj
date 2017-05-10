@@ -11,8 +11,6 @@
 		76B85B4D1EC22CCE00C54ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B4C1EC22CCE00C54ADB /* AppDelegate.swift */; };
 		76B85B4F1EC22CCE00C54ADB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B4E1EC22CCE00C54ADB /* ViewController.swift */; };
 		76B85B521EC22CCE00C54ADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B85B501EC22CCE00C54ADB /* Main.storyboard */; };
-		76B85B551EC22CCE00C54ADB /* CategoryQC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B531EC22CCE00C54ADB /* CategoryQC.xcdatamodeld */; };
-		76B85B571EC22CCE00C54ADB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76B85B561EC22CCE00C54ADB /* Assets.xcassets */; };
 		76B85B5A1EC22CCE00C54ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B85B581EC22CCE00C54ADB /* LaunchScreen.storyboard */; };
 		76B85B651EC22CCE00C54ADB /* CategoryQCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B641EC22CCE00C54ADB /* CategoryQCTests.swift */; };
 		76B85B701EC22CCE00C54ADB /* CategoryQCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B6F1EC22CCE00C54ADB /* CategoryQCUITests.swift */; };
@@ -44,8 +42,6 @@
 		76B85B4C1EC22CCE00C54ADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B85B4E1EC22CCE00C54ADB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		76B85B511EC22CCE00C54ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		76B85B541EC22CCE00C54ADB /* CategoryQC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CategoryQC.xcdatamodel; sourceTree = "<group>"; };
-		76B85B561EC22CCE00C54ADB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76B85B591EC22CCE00C54ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76B85B5B1EC22CCE00C54ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76B85B601EC22CCE00C54ADB /* CategoryQCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CategoryQCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +80,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76A49EC91EC347B100382CC3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				76B85B4E1EC22CCE00C54ADB /* ViewController.swift */,
+				76B85B501EC22CCE00C54ADB /* Main.storyboard */,
+				76B85B581EC22CCE00C54ADB /* LaunchScreen.storyboard */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		76A49ECA1EC347F200382CC3 /* CategoryButtonView */ = {
+			isa = PBXGroup;
+			children = (
+				76A49EA31EC3043300382CC3 /* Category.qc */,
+				76B85B831EC24B4000C54ADB /* CategoryButtonView.swift */,
+				76B85B7D1EC2337E00C54ADB /* CategoryView.swift */,
+				76B85B7E1EC2337E00C54ADB /* QCMethod.swift */,
+			);
+			name = CategoryButtonView;
+			sourceTree = "<group>";
+		};
+		76A49ECB1EC3493600382CC3 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				76B85B4C1EC22CCE00C54ADB /* AppDelegate.swift */,
+				76B85B5B1EC22CCE00C54ADB /* Info.plist */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
 		76B85B401EC22CCE00C54ADB = {
 			isa = PBXGroup;
 			children = (
@@ -107,17 +133,9 @@
 		76B85B4B1EC22CCE00C54ADB /* CategoryQC */ = {
 			isa = PBXGroup;
 			children = (
-				76A49EA31EC3043300382CC3 /* Category.qc */,
-				76B85B7D1EC2337E00C54ADB /* CategoryView.swift */,
-				76B85B7E1EC2337E00C54ADB /* QCMethod.swift */,
-				76B85B4C1EC22CCE00C54ADB /* AppDelegate.swift */,
-				76B85B4E1EC22CCE00C54ADB /* ViewController.swift */,
-				76B85B501EC22CCE00C54ADB /* Main.storyboard */,
-				76B85B561EC22CCE00C54ADB /* Assets.xcassets */,
-				76B85B581EC22CCE00C54ADB /* LaunchScreen.storyboard */,
-				76B85B5B1EC22CCE00C54ADB /* Info.plist */,
-				76B85B531EC22CCE00C54ADB /* CategoryQC.xcdatamodeld */,
-				76B85B831EC24B4000C54ADB /* CategoryButtonView.swift */,
+				76A49ECB1EC3493600382CC3 /* Application */,
+				76A49EC91EC347B100382CC3 /* ViewControllers */,
+				76A49ECA1EC347F200382CC3 /* CategoryButtonView */,
 			);
 			path = CategoryQC;
 			sourceTree = "<group>";
@@ -251,7 +269,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76B85B5A1EC22CCE00C54ADB /* LaunchScreen.storyboard in Resources */,
-				76B85B571EC22CCE00C54ADB /* Assets.xcassets in Resources */,
 				76B85B521EC22CCE00C54ADB /* Main.storyboard in Resources */,
 				76A49EA41EC3043300382CC3 /* Category.qc in Resources */,
 			);
@@ -283,7 +300,6 @@
 				76B85B4D1EC22CCE00C54ADB /* AppDelegate.swift in Sources */,
 				76B85B841EC24B4000C54ADB /* CategoryButtonView.swift in Sources */,
 				76B85B7F1EC2337E00C54ADB /* CategoryView.swift in Sources */,
-				76B85B551EC22CCE00C54ADB /* CategoryQC.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,19 +575,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		76B85B531EC22CCE00C54ADB /* CategoryQC.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				76B85B541EC22CCE00C54ADB /* CategoryQC.xcdatamodel */,
-			);
-			currentVersion = 76B85B541EC22CCE00C54ADB /* CategoryQC.xcdatamodel */;
-			path = CategoryQC.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 76B85B411EC22CCE00C54ADB /* Project object */;
 }

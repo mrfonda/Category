@@ -41,7 +41,6 @@ class ViewController: UIViewController, CategoryMenuDelegate {
     menu.tintColor = UIColor.getRandomColor()
     menu.backgroundColor = UIColor.getRandomColor()
   }
-
 }
 extension UIColor {
   static func getRandomColor() -> UIColor{
