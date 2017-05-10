@@ -33,7 +33,7 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pbn-zg-xha" customClass="CategoryButtonView" customModule="CategoryQC" customModuleProvider="target">
                                         <rect key="frame" x="101.5" y="50" width="40" height="40"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="EwQ-5P-qgn"/>
                                             <constraint firstAttribute="width" constant="40" id="mLC-pC-uLO"/>

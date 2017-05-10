@@ -173,7 +173,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uLTransformAnim.values         = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -193,7 +193,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uRTransformAnim.values         = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -213,7 +213,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dRTransformAnim.values         = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -232,7 +232,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dLTransformAnim.values   = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -263,7 +263,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		////Group animation
 		let GroupTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		GroupTransformAnim.values         = [0, 
-			 -90 * CGFloat(M_PI/180)]
+			 -90 * CGFloat(Double.pi/180)]
 		GroupTransformAnim.keyTimes       = [0, 1]
 		GroupTransformAnim.duration       = 0.299
 		GroupTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -282,8 +282,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uLPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -302,8 +302,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -322,8 +322,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -341,8 +341,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dLPositionAnim.duration = 0.299
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -372,8 +372,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		////Group animation
 		let GroupTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
-		GroupTransformAnim.values         = [-90 * CGFloat(M_PI/180), 
-			 -180 * CGFloat(M_PI/180)]
+		GroupTransformAnim.values         = [-90 * CGFloat(Double.pi/180), 
+			 -180 * CGFloat(Double.pi/180)]
 		GroupTransformAnim.keyTimes       = [0, 1]
 		GroupTransformAnim.duration       = 0.299
 		GroupTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -392,8 +392,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uLPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -412,8 +412,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -432,8 +432,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -451,8 +451,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dLPositionAnim.duration = 0.299
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -483,7 +483,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		////Group animation
 		let GroupTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		GroupTransformAnim.values         = [0, 
-			 -180 * CGFloat(M_PI/180)]
+			 -180 * CGFloat(Double.pi/180)]
 		GroupTransformAnim.keyTimes       = [0, 1]
 		GroupTransformAnim.duration       = 0.299
 		GroupTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -502,8 +502,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uLPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -522,8 +522,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -542,8 +542,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -561,8 +561,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dLPositionAnim.duration = 0.299
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -593,7 +593,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		////Group animation
 		let GroupTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		GroupTransformAnim.values         = [0, 
-			 90 * CGFloat(M_PI/180)]
+			 90 * CGFloat(Double.pi/180)]
 		GroupTransformAnim.keyTimes       = [0, 1]
 		GroupTransformAnim.duration       = 0.299
 		GroupTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -612,8 +612,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uLPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -632,8 +632,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -652,8 +652,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -671,8 +671,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dLPositionAnim.duration = 0.299
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -702,8 +702,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		////Group animation
 		let GroupTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
-		GroupTransformAnim.values         = [-180 * CGFloat(M_PI/180), 
-			 -270 * CGFloat(M_PI/180)]
+		GroupTransformAnim.values         = [-180 * CGFloat(Double.pi/180), 
+			 -270 * CGFloat(Double.pi/180)]
 		GroupTransformAnim.keyTimes       = [0, 1]
 		GroupTransformAnim.duration       = 0.299
 		GroupTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -722,8 +722,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uLPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -742,8 +742,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -762,8 +762,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -781,8 +781,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dLPositionAnim.duration = 0.299
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -832,7 +832,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uLTransformAnim.values         = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.3
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -852,7 +852,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uRTransformAnim.values         = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.3
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -872,7 +872,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dRTransformAnim.values         = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.3
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -891,7 +891,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dLTransformAnim.values   = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.3
 		
@@ -978,7 +978,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uLTransformAnim.values         = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -998,7 +998,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uRTransformAnim.values         = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1018,7 +1018,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dRTransformAnim.values         = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1037,7 +1037,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dLTransformAnim.values   = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -1087,7 +1087,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uLTransformAnim.values         = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1107,7 +1107,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		uRTransformAnim.values         = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1127,7 +1127,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dRTransformAnim.values         = [0, 
-			 45 * CGFloat(M_PI/180)]
+			 45 * CGFloat(Double.pi/180)]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1146,7 +1146,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform.rotation.z")
 		dLTransformAnim.values   = [0, 
-			 -45 * CGFloat(M_PI/180)]
+			 -45 * CGFloat(Double.pi/180)]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
@@ -1177,7 +1177,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		////Group animation
 		let GroupTransformAnim      = CAKeyframeAnimation(keyPath:"transform.rotation.x")
 		GroupTransformAnim.values   = [0, 
-			 CGFloat(M_PI)]
+			 CGFloat(Double.pi)]
 		GroupTransformAnim.keyTimes = [0, 1]
 		GroupTransformAnim.duration = 0.3
 		
@@ -1189,8 +1189,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		////UL animation
 		let uLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		uLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uLTransformAnim.keyTimes = [0, 1]
 		uLTransformAnim.duration = 0.3
 		
@@ -1207,8 +1207,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		////UR animation
 		let uRTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		uRTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		uRTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		uRTransformAnim.keyTimes = [0, 1]
 		uRTransformAnim.duration = 0.3
 		
@@ -1225,8 +1225,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		////DR animation
 		let dRTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dRTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dRTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dRTransformAnim.keyTimes = [0, 1]
 		dRTransformAnim.duration = 0.3
 		
@@ -1243,8 +1243,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		////DL animation
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.3
 		
@@ -1295,8 +1295,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		////Group animation
 		let GroupTransformAnim            = CAKeyframeAnimation(keyPath:"transform.rotation.z")
-		GroupTransformAnim.values         = [90 * CGFloat(M_PI/180), 
-			 -90 * CGFloat(M_PI/180)]
+		GroupTransformAnim.values         = [90 * CGFloat(Double.pi/180), 
+			 -90 * CGFloat(Double.pi/180)]
 		GroupTransformAnim.keyTimes       = [0, 1]
 		GroupTransformAnim.duration       = 0.299
 		GroupTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1315,8 +1315,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uLPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uLTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uLTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uLTransformAnim.keyTimes       = [0, 1]
 		uLTransformAnim.duration       = 0.297
 		uLTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1335,8 +1335,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		uRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let uRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(M_PI_4), 0, 0, -1))]
+		uRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Double.pi / 4), 0, 0, -1))]
 		uRTransformAnim.keyTimes       = [0, 1]
 		uRTransformAnim.duration       = 0.299
 		uRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1355,8 +1355,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dRPositionAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let dRTransformAnim            = CAKeyframeAnimation(keyPath:"transform")
-		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dRTransformAnim.values         = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dRTransformAnim.keyTimes       = [0, 1]
 		dRTransformAnim.duration       = 0.299
 		dRTransformAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
@@ -1374,8 +1374,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dLPositionAnim.duration = 0.299
 		
 		let dLTransformAnim      = CAKeyframeAnimation(keyPath:"transform")
-		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1)), 
-			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(M_PI/180), 0, 0, -1))]
+		dLTransformAnim.values   = [NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1)), 
+			 NSValue(caTransform3D: CATransform3DMakeRotation(-45 * CGFloat(Double.pi/180), 0, 0, -1))]
 		dLTransformAnim.keyTimes = [0, 1]
 		dLTransformAnim.duration = 0.299
 		
