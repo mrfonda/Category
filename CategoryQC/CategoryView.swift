@@ -1,7 +1,7 @@
 //
 //  CategoryView.swift
 //
-//  Code generated using QuartzCode 1.50.0 on 09/05/2017.
+//  Code generated using QuartzCode 1.50.0 on 10/05/2017.
 //  www.quartzcodeapp.com
 //
 
@@ -14,7 +14,8 @@ class CategoryView: UIView, CAAnimationDelegate {
 	var completionBlocks : Dictionary<CAAnimation, (Bool) -> Void> = [:]
 	var updateLayerValueForCompletedAnimation : Bool = false
 	
-	var white : UIColor!
+	var categoryTintColor : UIColor!
+	var categoryShadowColor : UIColor!
 	
 	//MARK: - Life Cycle
 	
@@ -44,11 +45,12 @@ class CategoryView: UIView, CAAnimationDelegate {
 	}
 	
 	func setupProperties(){
-		self.white = UIColor.white
+		self.categoryTintColor = UIColor.black
+		self.categoryShadowColor = UIColor(red:0.498, green: 0.498, blue:0.498, alpha:1)
 	}
 	
 	func setupLayers(){
-		self.backgroundColor = UIColor.black
+		self.backgroundColor = UIColor(red:0, green: 0, blue:0, alpha:0)
 		
 		let Group = CALayer()
 		self.layer.addSublayer(Group)
@@ -76,23 +78,27 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		if layerIds == nil || layerIds.contains("uL"){
 			let uL = layers["uL"] as! CAShapeLayer
-			uL.fillColor = self.white.cgColor
-			uL.lineWidth = 0
+			uL.fillColor   = self.categoryTintColor.cgColor
+			uL.strokeColor = UIColor(red:0.498, green: 0.498, blue:0.498, alpha:0).cgColor
+			uL.strokeEnd   = 0.99
 		}
 		if layerIds == nil || layerIds.contains("uR"){
 			let uR = layers["uR"] as! CAShapeLayer
-			uR.fillColor = self.white.cgColor
-			uR.lineWidth = 0
+			uR.fillColor   = self.categoryTintColor.cgColor
+			uR.strokeColor = UIColor(red:0.498, green: 0.498, blue:0.498, alpha:0).cgColor
+			uR.strokeEnd   = 0.99
 		}
 		if layerIds == nil || layerIds.contains("dR"){
 			let dR = layers["dR"] as! CAShapeLayer
-			dR.fillColor = self.white.cgColor
-			dR.lineWidth = 0
+			dR.fillColor   = self.categoryTintColor.cgColor
+			dR.strokeColor = UIColor(red:0.498, green: 0.498, blue:0.498, alpha:0).cgColor
+			dR.strokeEnd   = 0.99
 		}
 		if layerIds == nil || layerIds.contains("dL"){
 			let dL = layers["dL"] as! CAShapeLayer
-			dL.fillColor     = UIColor.white.cgColor
-			dL.lineWidth     = 0
+			dL.fillColor     = self.categoryTintColor.cgColor
+			dL.strokeColor   = UIColor(red:0.498, green: 0.498, blue:0.498, alpha:0).cgColor
+			dL.strokeEnd     = 0.99
 			dL.lineDashPhase = 1
 		}
 		
@@ -900,10 +906,10 @@ class CategoryView: UIView, CAAnimationDelegate {
 		dL.add(dLCategoryToRightArrowAnim, forKey:"dLCategoryToRightArrowAnim")
 	}
 	
-	func addTouchedAnimation(reverseAnimation: Bool = false, completionBlock: ((_ finished: Bool) -> Void)? = nil){
+	func addTouchedAnimation(reverseAnimation: Bool = false, totalDuration: CFTimeInterval = 0.3, completionBlock: ((_ finished: Bool) -> Void)? = nil){
 		if completionBlock != nil{
 			let completionAnim = CABasicAnimation(keyPath:"completionAnim")
-			completionAnim.duration = 0.3
+			completionAnim.duration = totalDuration
 			completionAnim.delegate = self
 			completionAnim.setValue("touched", forKey:"animId")
 			completionAnim.setValue(false, forKey:"needEndAnim")
@@ -915,13 +921,11 @@ class CategoryView: UIView, CAAnimationDelegate {
 		
 		let fillMode : String = reverseAnimation ? kCAFillModeBoth : kCAFillModeForwards
 		
-		let totalDuration : CFTimeInterval = 0.3
-		
 		////Group animation
 		let GroupOpacityAnim            = CAKeyframeAnimation(keyPath:"opacity")
 		GroupOpacityAnim.values         = [1, 0.5]
 		GroupOpacityAnim.keyTimes       = [0, 1]
-		GroupOpacityAnim.duration       = 0.3
+		GroupOpacityAnim.duration       = 1 * totalDuration
 		GroupOpacityAnim.timingFunction = CAMediaTimingFunction(name:kCAMediaTimingFunctionEaseIn)
 		
 		let Group = layers["Group"] as! CALayer
@@ -930,7 +934,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 		GroupTransformAnim.values   = [NSValue(caTransform3D: CATransform3DIdentity), 
 			 NSValue(caTransform3D: CATransform3DMakeScale(0.9, 0.9, 0.9))]
 		GroupTransformAnim.keyTimes = [0, 1]
-		GroupTransformAnim.duration = 0.3
+		GroupTransformAnim.duration = totalDuration
 		
 		var GroupTouchedAnim : CAAnimationGroup = QCMethod.group(animations: [GroupOpacityAnim, GroupTransformAnim], fillMode:fillMode)
 		if (reverseAnimation){ GroupTouchedAnim = QCMethod.reverseAnimation(anim: GroupTouchedAnim, totalDuration:totalDuration) as! CAAnimationGroup}
@@ -1271,7 +1275,7 @@ class CategoryView: UIView, CAAnimationDelegate {
 			}
 		}
 		
-		let fillMode : String = kCAFillModeForwards
+		let _ : String = kCAFillModeForwards
 	}
 	
 	func addUpArrowToDownArrowAnimation(reverseAnimation: Bool = false, completionBlock: ((_ finished: Bool) -> Void)? = nil){
@@ -1578,17 +1582,44 @@ class CategoryView: UIView, CAAnimationDelegate {
 	//MARK: - Bezier Path
 	
 	func uLPath(bounds: CGRect) -> UIBezierPath{
-		let uLPath = UIBezierPath(rect:bounds)
+		let uLPath = UIBezierPath()
+		let minX = CGFloat(bounds.minX), minY = bounds.minY, w = bounds.width, h = bounds.height;
+		
+		uLPath.move(to: CGPoint(x:minX, y: minY + h))
+		uLPath.addLine(to: CGPoint(x:minX + w, y: minY + h))
+		uLPath.addLine(to: CGPoint(x:minX + w, y: minY))
+		uLPath.addLine(to: CGPoint(x:minX, y: minY))
+		uLPath.close()
+		uLPath.move(to: CGPoint(x:minX, y: minY + h))
+		
 		return uLPath
 	}
 	
 	func uRPath(bounds: CGRect) -> UIBezierPath{
-		let uRPath = UIBezierPath(rect:bounds)
+		let uRPath = UIBezierPath()
+		let minX = CGFloat(bounds.minX), minY = bounds.minY, w = bounds.width, h = bounds.height;
+		
+		uRPath.move(to: CGPoint(x:minX, y: minY + h))
+		uRPath.addLine(to: CGPoint(x:minX + w, y: minY + h))
+		uRPath.addLine(to: CGPoint(x:minX + w, y: minY))
+		uRPath.addLine(to: CGPoint(x:minX, y: minY))
+		uRPath.close()
+		uRPath.move(to: CGPoint(x:minX, y: minY + h))
+		
 		return uRPath
 	}
 	
 	func dRPath(bounds: CGRect) -> UIBezierPath{
-		let dRPath = UIBezierPath(rect:bounds)
+		let dRPath = UIBezierPath()
+		let minX = CGFloat(bounds.minX), minY = bounds.minY, w = bounds.width, h = bounds.height;
+		
+		dRPath.move(to: CGPoint(x:minX, y: minY + h))
+		dRPath.addLine(to: CGPoint(x:minX + w, y: minY + h))
+		dRPath.addLine(to: CGPoint(x:minX + w, y: minY))
+		dRPath.addLine(to: CGPoint(x:minX, y: minY))
+		dRPath.close()
+		dRPath.move(to: CGPoint(x:minX, y: minY + h))
+		
 		return dRPath
 	}
 	

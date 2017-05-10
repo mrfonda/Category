@@ -19,6 +19,13 @@ class CategoryButtonView: UIView {
   
   let menuButton = UIButton()
   
+  override var tintColor: UIColor! {
+    didSet {
+      categoryView.categoryTintColor = tintColor
+      categoryView.resetLayerProperties(forLayerIdentifiers: nil)
+    }
+  }
+  
   var categoryMenuDelegate : CategoryMenuDelegate?
   
   public enum MenuStates : Int {
@@ -94,7 +101,7 @@ class CategoryButtonView: UIView {
         case .upArrow:
           categoryView.addUpArrowToDownArrowAnimation(reverseAnimation: true)
         case .downArrow: return
-        default: return
+       // default: return
         }
       }
       print(menuState, "->", newValue)
@@ -108,17 +115,21 @@ class CategoryButtonView: UIView {
     menuButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
     menuButton.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchDown)
     menuButton.addTarget(self, action: #selector(buttonReleased), for: UIControlEvents.touchUpOutside)
+    categoryView.categoryTintColor = tintColor
   }
   
   override func draw(_ rect: CGRect) {
     addSubview(categoryView)
     addSubview(menuButton)
     categoryView.bindFrameToSuperviewBounds()
+    categoryView.categoryTintColor = tintColor
+    categoryView.resetLayerProperties(forLayerIdentifiers: nil)
     menuButton.bindFrameToSuperviewBounds()
+    
   }
   
   func buttonPressed() {
-    categoryView.addTouchedAnimation()
+    categoryView.addTouchedAnimation( totalDuration: 0.01)
   }
   
   func buttonReleased() {
