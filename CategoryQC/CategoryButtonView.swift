@@ -11,7 +11,7 @@ import UIKit
 protocol CategoryMenuDelegate {
   func categoryViewDidTapped(menuState: CategoryButtonView.MenuStates) -> CategoryButtonView.MenuStates
 }
-@IBDesignable
+
 class CategoryButtonView: UIView {
   
   
