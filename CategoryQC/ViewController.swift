@@ -10,149 +10,114 @@ import UIKit
 
 class ViewController: UIViewController, CategoryMenuDelegate {
     
-    @IBOutlet weak var widthConstant: NSLayoutConstraint!
-    @IBOutlet weak var heightConstant: NSLayoutConstraint!
-    @IBOutlet weak var menu: CategoryButtonView!
-    @IBOutlet weak var stack: UIStackView!
-    @IBOutlet weak var switch3D: UISwitch!
-    @IBOutlet weak var menuSizeSlider: UISlider!
-    @IBOutlet weak var buttonType: UISwitch!
-    var heightMenuProgConstraint = NSLayoutConstraint()
-    var widthMenuProgConstraint = NSLayoutConstraint()
-    var anchor : CGFloat = 40
-    var menuProg = CategoryButtonView()
-    var buttonSize : CGFloat {
-        get {
-            return CGFloat(self.menuSizeSlider.value)
-        }
-        set {
-            self.menuSizeSlider.value = Float(newValue)
-            
-            
-            
-            if buttonType.isOn {
-                
-                widthMenuProgConstraint = NSLayoutConstraint(item: menuProg, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: newValue)
-                heightMenuProgConstraint = NSLayoutConstraint(item: menuProg, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: newValue)
-                //menuProg.heightAnchor.constraint(equalToConstant: anchor).isActive = false
-                //menuProg.widthAnchor.constraint(equalToConstant: anchor).isActive = false
-                //menuProg.heightAnchor.constraint(equalToConstant: newValue).isActive = true
-                //menuProg.widthAnchor.constraint(equalToConstant: newValue).isActive = true
-                anchor = newValue
-            } else {
-                self.heightConstant.constant = newValue
-                self.widthConstant.constant = newValue
-                print(menu.frame, self.heightConstant.constant, self.widthConstant.constant)
-            }
-            
-        }
-    }
-    //MARK: - Life Cycle
+    
+    fileprivate var slider = UISlider()
+    fileprivate var btn : CategoryButtonView?
+    fileprivate var slider2 = UISlider()
+    fileprivate var btn2 : CategoryButtonView?
+    
+    var btnHeightConstraint = NSLayoutConstraint()
+    var btnWidthConstraint = NSLayoutConstraint()
+    var btn2HeightConstraint = NSLayoutConstraint()
+    var btn2WidthConstraint = NSLayoutConstraint()
     
     override func viewDidLoad() {
-        menu.categoryMenuDelegate = self
-        let buttonFrame = CGRect(x: CGFloat(0), y: CGFloat(0), width: CGFloat(buttonSize), height: CGFloat(buttonSize))
-        
-        menuProg = CategoryButtonView(frame: buttonFrame, tintColor: UIColor.blue, backgroundColor: UIColor.brown)
-        menuProg.categoryMenuDelegate = self
-        
-        switch3D.isOn = menu.is3DEnabled
-        
-        stack.insertArrangedSubview(menuProg, at: 1)
-        //menuProg.heightAnchor.constraint(equalToConstant: anchor).isActive = true
-        //menuProg.widthAnchor.constraint(equalToConstant: anchor).isActive = true
-        
-        widthMenuProgConstraint = NSLayoutConstraint(item: menuProg, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40)
-        heightMenuProgConstraint = NSLayoutConstraint(item: menuProg, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 40)
-        
-        //menuProg.isHidden = true
-        //menuProg.addConstraints([widthMenuProgConstraint,heightMenuProgConstraint])
+        super.viewDidLoad()
+        view.backgroundColor = UIColor.white
+        prepareMenuButton()
     }
     
-    //MARK: - UI
+    /// A constant to layout.
+    fileprivate var btnSize: CGFloat  {
+        get  { return CGFloat(slider.value) }
+        set
+        {
+            btnHeightConstraint.constant = newValue
+            btnWidthConstraint.constant =  newValue
+        }
+    }
+    fileprivate var btn2Size: CGFloat  {
+        get  { return CGFloat(slider.value) }
+        set
+        {
+            btn2HeightConstraint.constant = newValue
+            btn2WidthConstraint.constant =  newValue
+        }
+    }
+    
     func categoryViewDidTapped(menuState: CategoryButtonView.MenuStates) -> CategoryButtonView.MenuStates {
         return CategoryButtonView.MenuStates.randomState()
     }
-    @IBAction func toCategory(_ sender: UIButton) {
-        menu.menuState = .category
-    }
-    @IBAction func toUp(_ sender: UIButton) {
-        menu.menuState = .upArrow
-    }
-    @IBAction func toLeft(_ sender: UIButton) {
-        menu.menuState = .leftArrow
-    }
-    @IBAction func toRight(_ sender: UIButton) {
-        menu.menuState = .rightArrow
-    }
     
-    @IBAction func toDown(_ sender: UIButton) {
-        menu.menuState = .downArrow
+    func changeSize() {
+        UIView.animate(withDuration: 0.3) { 
+            self.btnSize = CGFloat(self.slider.value)
+        }
     }
-    
-    @IBAction func rndColor(_ sender: UIButton) {
-        menu.tintColor = UIColor.getRandomColor()
-        menu.backgroundColor = UIColor.getRandomColor()
-    }
-    
-    @IBAction func change3D(_ sender: UISwitch) {
-        menu.is3DEnabled = sender.isOn
-    }
-    
-    
-    
-    @IBAction func changeButtonType(_ sender: UISwitch) {
-        if buttonType.isOn {
-            //menuProg.heightAnchor.constraint(equalToConstant: anchor).isActive = false
-            //menuProg.widthAnchor.constraint(equalToConstant: anchor).isActive = false
-            //menuProg.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-            //menuProg.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-            anchor = buttonSize
-            menu.isHidden = true
-            heightMenuProgConstraint.isActive = true
-            widthMenuProgConstraint.isActive = true
-            menuProg.isHidden = false
-            
-            
-            
-        } else {
-            //menuProg.heightAnchor.constraint(equalToConstant: buttonSize).isActive = false
-            //menuProg.widthAnchor.constraint(equalToConstant: buttonSize).isActive = false
-            menu.isHidden = false
-            menuProg.isHidden = true
-            stack.insertArrangedSubview(menuProg, at: 1)
+    func changeSize2() {
+        UIView.animate(withDuration: 0.3) {
+            self.btn2Size = CGFloat(self.slider2.value)
         }
     }
     
-    @IBAction func minus10(_ sender: UIBarButtonItem) {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: [.curveEaseIn], animations: {
-            self.buttonSize = self.buttonSize - 10
-        }, completion: nil)
-    }
-    
-    @IBAction func plus10(_ sender: UIBarButtonItem) {
-        UIView.animate(withDuration: 2) {
-            self.buttonSize = self.buttonSize + 10
-        }
-    }
-    
-    @IBAction func changeMenuSize(_ sender: UISlider) {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: [.curveEaseIn], animations: {
-            self.buttonSize = CGFloat(sender.value)
-        }, completion: nil)
+    /// Prepares the resign responder button.
+    fileprivate func prepareMenuButton() {
         
-    }
-}
-extension UIColor {
-    static func getRandomColor() -> UIColor{
         
-        let randomRed:CGFloat = CGFloat(drand48())
+        slider.widthAnchor.constraint(equalToConstant: self.view.frame.width - 40).isActive = true
+        slider.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        slider.maximumValue = 300
+        slider.minimumValue = 10
+        slider.setValue(300, animated: true)
+        slider.addTarget(self, action: #selector(changeSize), for: .valueChanged)
         
-        let randomGreen:CGFloat = CGFloat(drand48())
+        slider2.widthAnchor.constraint(equalToConstant: self.view.frame.width - 40).isActive = true
+        slider2.heightAnchor.constraint(equalToConstant: 20.0).isActive = true
+        slider2.maximumValue = 300
+        slider2.minimumValue = 10
+        slider2.setValue(300, animated: true)
+        slider2.addTarget(self, action: #selector(changeSize2), for: .valueChanged)
         
-        let randomBlue:CGFloat = CGFloat(drand48())
         
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+        btn = CategoryButtonView(frame: CGRect.init(origin: view.center, size: CGSize(width: btnSize, height: btnSize)), tintColor: UIColor.white, backgroundColor: UIColor.black)
+        btnWidthConstraint = NSLayoutConstraint(item: btn!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: btnSize)
+        btnHeightConstraint = NSLayoutConstraint(item: btn!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: btnSize)
+        btn?.categoryMenuDelegate = self
+        
+        btn2 = CategoryButtonView(frame: CGRect.init(origin: view.center, size: CGSize(width: btn2Size, height: btn2Size)), tintColor: UIColor.white, backgroundColor: UIColor.black)
+        btn2WidthConstraint = NSLayoutConstraint(item: btn2!, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: btn2Size)
+        btn2HeightConstraint = NSLayoutConstraint(item: btn2!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: btn2Size)
+        btn2?.categoryMenuDelegate = self
+        
+        //Stack View
+        let stackView   = UIStackView()
+        stackView.axis  = UILayoutConstraintAxis.vertical
+        stackView.distribution  = UIStackViewDistribution.equalSpacing
+        stackView.alignment = UIStackViewAlignment.center
+        stackView.spacing   = 16.0
+        
+        
+        
+        self.view.addSubview(stackView)
+        
+        stackView.addArrangedSubview(btn!)
+        stackView.addArrangedSubview(slider)
+        stackView.addArrangedSubview(btn2!)
+        stackView.addArrangedSubview(slider2)
+        
+        
+        
+        //Constraints
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        stackView.addConstraints(
+            [
+                btnWidthConstraint,
+                btnHeightConstraint,
+                btn2WidthConstraint,
+                btn2HeightConstraint
+            ])
         
     }
 }
