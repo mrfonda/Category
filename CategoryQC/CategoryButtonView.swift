@@ -16,17 +16,18 @@ class CategoryButtonView: UIView {
     
     public var is3DEnabled = false
     
-    let categoryView = CategoryView()
+    var categoryView = CategoryView()
     let menuButton = UIButton()
-    
+    var heightConstraint : NSLayoutConstraint?
+    var widthConstraint : NSLayoutConstraint?
     
     override var tintColor: UIColor! {
         didSet {
             categoryView.categoryTintColor = tintColor
             categoryView.resetLayerProperties(forLayerIdentifiers: nil)
+        
         }
     }
-    
     var categoryMenuDelegate : CategoryMenuDelegate?
     
     public enum MenuStates : Int {
@@ -40,23 +41,6 @@ class CategoryButtonView: UIView {
         }
     }
     
-    override func layoutSubviews() {
-
-        categoryView.bindFrameToSuperviewBounds()
-        
-        switch menuState {
-        case .category:
-            categoryView.removeAllAnimations()
-        case .leftArrow:
-            categoryView.addLeftArrowAnimation()
-        case .rightArrow:
-            categoryView.addRightArrowAnimation()
-        case .upArrow:
-            categoryView.addUpArrowAnimation()
-        case .downArrow:
-            categoryView.addDownArrowAnimation()
-        }
-    }
     open var menuState : MenuStates = .category {
         willSet {
             switch menuState {
@@ -97,7 +81,7 @@ class CategoryButtonView: UIView {
                     if is3DEnabled
                     {
                         categoryView.addLeftArrowToRightArrow3DAnimation(reverseAnimation: true)
-
+                        
                     } else {
                         categoryView.addLeftArrowToRightArrowAnimation(reverseAnimation: true)
                     }
@@ -119,7 +103,7 @@ class CategoryButtonView: UIView {
                     if is3DEnabled
                     {
                         categoryView.addUpArrowToDownArrow3DAnimation()
-
+                        
                     } else {
                         categoryView.addUpArrowToDownArrowAnimation()
                     }
@@ -137,7 +121,7 @@ class CategoryButtonView: UIView {
                     if is3DEnabled
                     {
                         categoryView.addUpArrowToDownArrow3DAnimation(reverseAnimation: true)
-
+                        
                     } else {
                         categoryView.addUpArrowToDownArrowAnimation(reverseAnimation: true)
                     }
@@ -150,9 +134,26 @@ class CategoryButtonView: UIView {
         
     }
     
+    //MARK: - LifeCycle
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        menuButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
+        menuButton.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchDown)
+        menuButton.addTarget(self, action: #selector(buttonReleased), for: UIControlEvents.touchUpOutside)
+        categoryView.categoryTintColor = tintColor
+    }
+    
+    public convenience init(frame: CGRect, tintColor: UIColor, backgroundColor: UIColor){
+        self.init(frame: frame) // calls the initializer above
+        self.backgroundColor = backgroundColor
+        self.categoryView = CategoryView(frame: frame)
+        self.tintColor = tintColor
+        
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         menuButton.addTarget(self, action: #selector(buttonTapped), for: UIControlEvents.touchUpInside)
         menuButton.addTarget(self, action: #selector(buttonPressed), for: UIControlEvents.touchDown)
         menuButton.addTarget(self, action: #selector(buttonReleased), for: UIControlEvents.touchUpOutside)
@@ -168,11 +169,38 @@ class CategoryButtonView: UIView {
         categoryView.resetLayerProperties(forLayerIdentifiers: nil)
         categoryView.layer.frame = frame
         categoryView.setupLayerFrames()
-        
         menuButton.bindFrameToSuperviewBounds()
         categoryView.bindFrameToSuperviewBounds()
         
     }
+
+    
+   //MARK: - Layout
+    
+    override func layoutSubviews() {
+        
+        if !self.subviews.isEmpty {
+            
+            switch self.menuState {
+            case .category:
+                self.categoryView.removeAllAnimations()
+            case .leftArrow:
+                self.categoryView.addLeftArrowAnimation()
+            case .rightArrow:
+                self.categoryView.addRightArrowAnimation()
+            case .upArrow:
+                self.categoryView.addUpArrowAnimation()
+            case .downArrow:
+                self.categoryView.addDownArrowAnimation()
+            }
+            self.categoryView.bindFrameToSuperviewBounds()
+        }
+        
+    }
+    
+    
+    
+    //MARK:- UI
     
     func buttonPressed() {
         categoryView.addTouchedAnimation( totalDuration: 0.01)
@@ -195,6 +223,9 @@ extension UIView {
             return
         }
         self.translatesAutoresizingMaskIntoConstraints = false
+        for constraint in self.constraints {
+            constraint.isActive = false
+        }
         superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
         superview.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[subview]-0-|", options: .directionLeadingToTrailing, metrics: nil, views: ["subview": self]))
     
