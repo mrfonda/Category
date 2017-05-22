@@ -10,7 +10,6 @@
 		76A49EA41EC3043300382CC3 /* Category.qc in Resources */ = {isa = PBXBuildFile; fileRef = 76A49EA31EC3043300382CC3 /* Category.qc */; };
 		76B85B4D1EC22CCE00C54ADB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B4C1EC22CCE00C54ADB /* AppDelegate.swift */; };
 		76B85B4F1EC22CCE00C54ADB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B4E1EC22CCE00C54ADB /* ViewController.swift */; };
-		76B85B521EC22CCE00C54ADB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B85B501EC22CCE00C54ADB /* Main.storyboard */; };
 		76B85B5A1EC22CCE00C54ADB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76B85B581EC22CCE00C54ADB /* LaunchScreen.storyboard */; };
 		76B85B651EC22CCE00C54ADB /* CategoryQCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B641EC22CCE00C54ADB /* CategoryQCTests.swift */; };
 		76B85B701EC22CCE00C54ADB /* CategoryQCUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B85B6F1EC22CCE00C54ADB /* CategoryQCUITests.swift */; };
@@ -41,7 +40,6 @@
 		76B85B491EC22CCE00C54ADB /* CategoryQC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CategoryQC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76B85B4C1EC22CCE00C54ADB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76B85B4E1EC22CCE00C54ADB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		76B85B511EC22CCE00C54ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		76B85B591EC22CCE00C54ADB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76B85B5B1EC22CCE00C54ADB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		76B85B601EC22CCE00C54ADB /* CategoryQCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CategoryQCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +82,6 @@
 			isa = PBXGroup;
 			children = (
 				76B85B4E1EC22CCE00C54ADB /* ViewController.swift */,
-				76B85B501EC22CCE00C54ADB /* Main.storyboard */,
 				76B85B581EC22CCE00C54ADB /* LaunchScreen.storyboard */,
 			);
 			name = ViewControllers;
@@ -269,7 +266,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76B85B5A1EC22CCE00C54ADB /* LaunchScreen.storyboard in Resources */,
-				76B85B521EC22CCE00C54ADB /* Main.storyboard in Resources */,
 				76A49EA41EC3043300382CC3 /* Category.qc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,14 +331,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		76B85B501EC22CCE00C54ADB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				76B85B511EC22CCE00C54ADB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		76B85B581EC22CCE00C54ADB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -452,7 +440,6 @@
 		76B85B751EC22CCE00C54ADB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JM5GZMKUEC;
 				INFOPLIST_FILE = CategoryQC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -460,13 +447,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fresheggs.CategoryQC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		76B85B761EC22CCE00C54ADB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = JM5GZMKUEC;
 				INFOPLIST_FILE = CategoryQC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -474,6 +461,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fresheggs.CategoryQC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
